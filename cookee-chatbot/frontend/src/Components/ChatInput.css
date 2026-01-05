@@ -1,0 +1,25 @@
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 800px;
+    margin-bottom: 20px;
+    
+    
+}
+
+.input-field {
+    border-radius: 30px;
+    padding: 10px 12px;
+    width: 700px;
+}
+
+.input-button {
+    border-radius: 20px;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+    background-color: #e69b00;
+    color: white;
+    font-weight: bold;
+}
