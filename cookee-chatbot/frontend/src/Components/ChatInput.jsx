@@ -63,7 +63,7 @@ function ChatInput({chatMessages, setChatMessages}) {
         <div className="input-row">
             <input 
                 type="text" 
-                placeholder="Send message..." 
+                placeholder="Send message...." 
                 onChange={handleChange}
                 onKeyDown={keyboardSubmit} 
                 value={inputText}
