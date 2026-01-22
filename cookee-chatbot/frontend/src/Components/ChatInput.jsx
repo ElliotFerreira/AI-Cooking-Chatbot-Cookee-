@@ -1,6 +1,7 @@
 import { useState } from "react"; 
 import "./ChatInput.css"
 
+const API_URL = import.meta.env.VITE_API_URL
 
 function ChatInput({chatMessages, setChatMessages}) {
 
@@ -33,7 +34,7 @@ function ChatInput({chatMessages, setChatMessages}) {
         
 
         try{
-            const response = await fetch('http://localhost:3001/api/chat', {
+            const response = await fetch(`${API_URL}/chat`, {
                 method: "POST",
                 headers: {"Content-Type" : 'application/json'},
                 body : JSON.stringify({
