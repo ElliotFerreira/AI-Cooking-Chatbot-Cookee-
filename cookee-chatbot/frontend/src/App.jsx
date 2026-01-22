@@ -3,6 +3,7 @@ import './App.css'
 import ChatInput from './Components/ChatInput'
 import ChatMessage from './Components/ChatMessage'
 import ChatMessages from './Components/ChatMessages'
+import Navbar from './Components/Navbar'
 
 function App() {
   
@@ -25,6 +26,8 @@ function App() {
 
   return (
     <>
+
+      <Navbar />
 
       <div className='app-container'>
         <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />

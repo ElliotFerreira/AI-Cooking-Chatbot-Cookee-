@@ -4,6 +4,8 @@ import "./ChatInput.css"
 
 function ChatInput({chatMessages, setChatMessages}) {
 
+    
+
     const [inputText, setInputText] = useState('');
 
     function handleChange(event) {
@@ -18,25 +20,42 @@ function ChatInput({chatMessages, setChatMessages}) {
 
     async function sendMessage() {
 
+        if(!inputText.trim()) return;
+
+        setChatMessages([
+            ...chatMessages,
+            {
+                message: inputText,
+                sender: 'user',
+                id: crypto.randomUUID()
+            }
+        ]);
+        
+
         try{
             const response = await fetch('http://localhost:3001/api/chat', {
                 method: "POST",
                 headers: {"Content-Type" : 'application/json'},
                 body : JSON.stringify({
-                    messages: [{role: "user", content: inputText}]
+                    messages: [
+                        {
+                            role: "system",
+                            content: "You are a friendly cooking assistant named Cookee. Instruct users on how to cook and give them step-by-step recipes"
+                        },
+
+                        {
+                            role: "user", 
+                            content: inputText
+                        }
+                    ]
                 })
             });
 
             const data = await response.json();
             const cookeeReply = data.choices[0].message.content;
 
-            setChatMessages([
-                ...chatMessages, 
-                {
-                    message: inputText,
-                    sender: 'user',
-                    id: crypto.randomUUID()
-                },
+            setChatMessages(prev => [
+                ...prev,
 
                 {
                     message: cookeeReply,
@@ -47,7 +66,7 @@ function ChatInput({chatMessages, setChatMessages}) {
 
             setInputText('');
         } catch(error) {
-            console.error("Error sending message", error)
+            console.error("Error sending message", error);
         }
 
         

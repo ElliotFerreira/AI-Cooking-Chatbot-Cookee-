@@ -21,7 +21,8 @@ app.post("/api/chat", async (req, res) => {
             },
             body: JSON.stringify({
                 model : "gpt-4",
-                messages: messages
+                messages: messages,
+                max_tokens: 350
             })
         });
 
