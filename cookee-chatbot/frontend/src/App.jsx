@@ -27,11 +27,12 @@ function App() {
   return (
     <>
 
-      <Navbar />
+      
 
       <div className='app-container'>
-        <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+        {/* <Navbar /> */}
         <ChatMessages chatMessages={chatMessages}  />
+        <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
       </div>
 
     </>

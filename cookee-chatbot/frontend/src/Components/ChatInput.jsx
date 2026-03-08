@@ -1,7 +1,7 @@
 import { useState } from "react"; 
 import "./ChatInput.css"
 
-const API_URL = import.meta.env.VITE_API_URL
+
 
 function ChatInput({chatMessages, setChatMessages}) {
 
@@ -32,9 +32,10 @@ function ChatInput({chatMessages, setChatMessages}) {
             }
         ]);
         
+        setInputText('');
 
         try{
-            const response = await fetch(`${API_URL}/api/chat`, {
+            const response = await fetch(`http://127.0.0.1:8000/api/chat/`, {
                 method: "POST",
                 headers: {"Content-Type" : 'application/json'},
                 body : JSON.stringify({
@@ -53,7 +54,7 @@ function ChatInput({chatMessages, setChatMessages}) {
             });
 
             const data = await response.json();
-            const cookeeReply = data.choices[0].message.content;
+            const cookeeReply = data.reply;
 
             setChatMessages(prev => [
                 ...prev,
@@ -65,7 +66,7 @@ function ChatInput({chatMessages, setChatMessages}) {
                 }
             ]);
 
-            setInputText('');
+            
         } catch(error) {
             console.error("Error sending message", error);
         }

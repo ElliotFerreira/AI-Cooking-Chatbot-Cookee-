@@ -6,7 +6,7 @@ function ChatMessages({chatMessages}) {
     ))
 
     return (
-        <div>
+        <div className="chat-message-container">
             {messageList}
         </div>
     )

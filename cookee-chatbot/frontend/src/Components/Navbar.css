@@ -1,3 +1,14 @@
 .navbar {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+
+}
+
+.nav-right-elements {
+    display: flex;
+    justify-content: center;
+    list-style: none;
 }
