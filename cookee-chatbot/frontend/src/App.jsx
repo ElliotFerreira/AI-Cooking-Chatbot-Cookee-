@@ -4,6 +4,7 @@ import ChatInput from './Components/ChatInput'
 import ChatMessage from './Components/ChatMessage'
 import ChatMessages from './Components/ChatMessages'
 import Navbar from './Components/Navbar'
+import Sidebar from './Components/Sidebar'
 
 function App() {
   
@@ -27,12 +28,14 @@ function App() {
   return (
     <>
 
-      
+      <div className='main-wrapper'>
+        <Sidebar />
+        <div className='app-container'>
+          {/* <Navbar /> */}
 
-      <div className='app-container'>
-        {/* <Navbar /> */}
-        <ChatMessages chatMessages={chatMessages}  />
-        <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+          <ChatMessages chatMessages={chatMessages}  />
+          <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+        </div>
       </div>
 
     </>
