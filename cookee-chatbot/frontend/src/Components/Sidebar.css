@@ -93,6 +93,7 @@
 .profile-section {
     display: flex;
     flex-direction: row;
+    
     padding: 6px 6px;
     border-top: 2px solid rgb(225,225,225);
     border-radius: 10px;
@@ -131,4 +132,15 @@
 
 .username {
     font-size: 1;
+}
+
+.login-button {
+    margin-left: 10px;
+    background-color: #e69b00;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 2px 15px;
+    cursor: pointer;
+    margin-left: 40px;
 }

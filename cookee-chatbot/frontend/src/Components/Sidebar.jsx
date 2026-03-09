@@ -64,6 +64,8 @@ export default function Sidebar() {
                     <p className='nickname'>Guest</p>
                     <p className='username'>@Guest1</p>
                 </div>
+
+                <button className='login-button'>Login</button>
                 
             </div>
 
