@@ -15,7 +15,7 @@
 
 .new-chat-button {
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
     background: none;
     border: none;
     cursor: pointer;
@@ -49,7 +49,7 @@
 .sidebar-nav a {
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     padding: 6px 6px;
     border-radius: 10px;
     display: flex;
@@ -81,7 +81,7 @@
 
 .conversation-list li {
     padding: 6px 6px;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -94,8 +94,9 @@
     display: flex;
     flex-direction: row;
     padding: 6px 6px;
-    border-top: 2px solid rgb(230,230,230);
+    border-top: 2px solid rgb(225,225,225);
     border-radius: 10px;
+    margin-top: 2px;
     
     
 }
