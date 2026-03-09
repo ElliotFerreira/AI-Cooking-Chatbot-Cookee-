@@ -6,6 +6,7 @@ import ChatMessages from './Components/ChatMessages'
 import Navbar from './Components/Navbar'
 import Sidebar from './Components/Sidebar'
 import shareIcon from './assets/icons/share-icon.svg'
+import saveChatIcon from './assets/icons/save-chat-icon.svg'
 
 function App() {
 
@@ -41,7 +42,13 @@ function App() {
           {/* <Navbar /> */}
           <div className='top-bar'>
             <p className='cookee-openai-model'>Cookee (GPT-4) </p>
-            <button className='top-bar-share-button'><img className='share-icon' src={shareIcon} height={20} />Share</button>
+            
+            
+            <div className='utility-buttons-container'>
+              <button className='top-bar-save-chat-button'><img className='save-chat-icon' src={saveChatIcon} height={20} />Save Chat</button>
+              <button className='top-bar-share-button'><img className='share-icon' src={shareIcon} height={20} />Share</button>
+            </div>
+            
           </div>
           
           <ChatMessages chatMessages={chatMessages} isChatLoading={isChatLoading}  />
