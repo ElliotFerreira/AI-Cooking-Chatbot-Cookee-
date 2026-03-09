@@ -11,7 +11,7 @@ function ChatMessage({message, sender}) {
                 {message}
             </div>
             
-            {sender === 'user' && (<img className='profile-picture' src={user} height='40' />)}
+            {sender === 'user' && (<p className='profile-section-picture profile-picture'>G</p> )}
         </div>
     )
 }
