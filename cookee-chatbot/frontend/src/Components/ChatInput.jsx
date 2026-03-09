@@ -3,11 +3,13 @@ import "./ChatInput.css"
 
 
 
-function ChatInput({chatMessages, setChatMessages}) {
+function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
 
     
 
     const [inputText, setInputText] = useState('');
+    
+    
 
     function handleChange(event) {
         setInputText(event.target.value);
@@ -33,6 +35,7 @@ function ChatInput({chatMessages, setChatMessages}) {
         ]);
         
         setInputText('');
+        setIsChatLoading(true);
 
         try{
             const response = await fetch(`http://127.0.0.1:8000/api/chat/`, {
@@ -69,6 +72,8 @@ function ChatInput({chatMessages, setChatMessages}) {
             
         } catch(error) {
             console.error("Error sending message", error);
+        } finally {
+            setIsChatLoading(false);
         }
 
         

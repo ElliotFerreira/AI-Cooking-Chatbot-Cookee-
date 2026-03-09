@@ -8,7 +8,8 @@ import Sidebar from './Components/Sidebar'
 import shareIcon from './assets/icons/share-icon.svg'
 
 function App() {
-  
+
+  const [isChatLoading, setIsChatLoading] = useState(false);
   const [chatMessages, setChatMessages] = useState([
 
 
@@ -40,8 +41,8 @@ function App() {
             <button className='top-bar-share-button'><img className='share-icon' src={shareIcon} height={20} />Share</button>
           </div>
 
-          <ChatMessages chatMessages={chatMessages}  />
-          <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+          <ChatMessages chatMessages={chatMessages} isChatLoading={isChatLoading}  />
+          <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} setIsChatLoading={setIsChatLoading} />
         </div>
       </div>
 
