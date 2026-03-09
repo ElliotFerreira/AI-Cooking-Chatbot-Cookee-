@@ -30,6 +30,10 @@ function App() {
 
       <div className='main-wrapper'>
         <Sidebar />
+        <div className='top-bar'>
+          <p>Cookee (GPT-4) </p>
+        </div>
+
         <div className='app-container'>
           {/* <Navbar /> */}
 

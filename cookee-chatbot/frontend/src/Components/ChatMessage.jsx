@@ -1,5 +1,5 @@
-import cookie from '../images/cookie.jpg'
-import user from '../images/user.png'
+import cookie from '../assets/images/cookie.jpg'
+import user from '../assets/images/user.png'
 import './ChatMessage.css'
 
 function ChatMessage({message, sender}) {

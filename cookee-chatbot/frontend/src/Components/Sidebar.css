@@ -1,6 +1,44 @@
 .sidebar {
     display: flex;
     flex-direction: column;
+    background-color: rgb(249, 249, 249);
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right-width: 0.px;
+    border-right: solid;
+    border-right-color: rgb(230, 230, 230);
+    height: 100vh;
+}
+
+
+
+.new-chat-button {
+    text-align: left;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 6px 6px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+
+
+.new-chat-button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.sidebar-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+    padding: 6px 6px;
 }
 
 .sidebar-nav {
@@ -8,7 +46,88 @@
     flex-direction: column;
 }
 
+.sidebar-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 6px 6px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgb(235, 235, 235);
+
+}
+
+.sidebar-conversations-title {
+    padding: 6px 6px;
+}
+
+.sidebar-conversations {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.sidebar-icons {
+    padding-right: 2px;
+}
+
 .conversation-list {
     list-style: none;
     padding: 0;
+}
+
+.conversation-list li {
+    padding: 6px 6px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.conversation-list li:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: row;
+    padding: 6px 6px;
+    border-top: 2px solid rgb(230,230,230);
+    border-radius: 10px;
+    
+    
+}
+
+.profile-section:hover {
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+
+.profile-section-picture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    color: white;
+    width: 15px;
+    height: 15px;
+    padding: 10px 10px;
+    border-radius: 50%;
+    
+}
+
+.profile-nickname-username {
+    padding-left: 10px;
+}
+
+.nickname {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.username {
+    font-size: 1;
 }

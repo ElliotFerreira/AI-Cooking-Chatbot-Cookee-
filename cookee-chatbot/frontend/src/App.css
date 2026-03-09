@@ -11,6 +11,10 @@
     
 }
 
+.top-bar {
+    border-bottom: 2px solid rgb(230,230,230);
+}
+
 .app-container {
     flex: 1;
     max-width: 800px;
