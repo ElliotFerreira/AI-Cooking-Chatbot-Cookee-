@@ -44,7 +44,7 @@ export default function Sidebar({setChatMessages, conversations}) {
                 <ul className='conversation-list'>
 
                     {conversations.map((conversation) => {
-                        return <li key={conversation.id}>{conversation.title}</li>
+                        return <li key={conversation.id}><button className='conversations-button' onClick={() => setChatMessages(conversation.messages)}>{conversation.title}</button></li>
                     })}
                  
                 </ul>
