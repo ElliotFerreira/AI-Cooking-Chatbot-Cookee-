@@ -5,7 +5,7 @@ import recipesIcon from '../assets/icons/recipes-icon.svg';
 import conversationsIcon from '../assets/icons/conversations-icon.svg';
 
 
-export default function Sidebar({setChatMessages}) {
+export default function Sidebar({setChatMessages, conversations}) {
 
     function newChat() {
         setChatMessages([
@@ -42,7 +42,10 @@ export default function Sidebar({setChatMessages}) {
             <div className="sidebar-conversations">
                 <h3 className='sidebar-conversations-title'>Recent Conversations</h3>
                 <ul className='conversation-list'>
-             
+
+                    {conversations.map((conversation) => {
+                        return <li key={conversation.id}>{conversation.title}</li>
+                    })}
                  
                 </ul>
             </div>
