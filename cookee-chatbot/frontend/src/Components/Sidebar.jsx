@@ -5,7 +5,24 @@ import recipesIcon from '../assets/icons/recipes-icon.svg';
 import conversationsIcon from '../assets/icons/conversations-icon.svg';
 
 
-export default function Sidebar() {
+export default function Sidebar({setChatMessages}) {
+
+    function newChat() {
+        setChatMessages([
+            {
+                message: 'This is your bubble!',
+                sender: 'user',
+                id: crypto.randomUUID()
+            },
+
+            {
+                message: 'Welcome to Cookee, ask me anything about cooking to get started!',
+                sender: 'cookee',
+                id: crypto.randomUUID()
+            }
+        ]);
+    }
+
     return (
         <div className="sidebar">
             
@@ -13,7 +30,7 @@ export default function Sidebar() {
             <h2 className='sidebar-title'>Cookee</h2>
 
             
-            <button className='new-chat-button'><img className='sidebar-icons' src={newChatIcon} height={30}></img>New Chat</button>
+            <button className='new-chat-button' onClick={newChat}><img className='sidebar-icons' src={newChatIcon} height={30}></img>New Chat</button>
            
             
 
@@ -33,27 +50,7 @@ export default function Sidebar() {
                     <li className="conversation-item">Ntaba</li>
                     <li className="conversation-item">Chicken</li>
                     <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
+                 
                 </ul>
             </div>
 

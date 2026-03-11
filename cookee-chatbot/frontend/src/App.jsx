@@ -11,7 +11,9 @@ import saveChatIcon from './assets/icons/save-chat-icon.svg'
 function App() {
 
   const [isChatLoading, setIsChatLoading] = useState(false);
-  // const [recipes, setRecipes] = useState(JSON.parse(localStorage.getItem("recipes") || "[]"))
+  // const [recipes, setRecipes] = useState(JSON.parse(localStorage.getItem("recipes") || "[]")
+  const [conversations, setConversations] = useState(JSON.parse(localStorage.getItem("conversations") || "[]"))
+
 
 
   const [chatMessages, setChatMessages] = useState([
@@ -35,7 +37,7 @@ function App() {
     <>
 
       <div className='main-wrapper'>
-        <Sidebar />
+        <Sidebar setChatMessages={setChatMessages} />
         
 
         <div className='app-container'>
