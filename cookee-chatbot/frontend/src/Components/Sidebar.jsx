@@ -42,14 +42,7 @@ export default function Sidebar({setChatMessages}) {
             <div className="sidebar-conversations">
                 <h3 className='sidebar-conversations-title'>Recent Conversations</h3>
                 <ul className='conversation-list'>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
-                    <li className="conversation-item">Chicken</li>
-                    <li className="conversation-item">Ntaba</li>
+             
                  
                 </ul>
             </div>

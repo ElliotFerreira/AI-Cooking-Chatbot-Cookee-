@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import ChatInput from './Components/ChatInput'
 import ChatMessage from './Components/ChatMessage'
@@ -13,6 +13,10 @@ function App() {
   const [isChatLoading, setIsChatLoading] = useState(false);
   // const [recipes, setRecipes] = useState(JSON.parse(localStorage.getItem("recipes") || "[]")
   const [conversations, setConversations] = useState(JSON.parse(localStorage.getItem("conversations") || "[]"))
+
+  useEffect(() => {
+    localStorage.setItem("conversations", JSON.stringify(conversations));
+  }, [conversations])
 
 
 
@@ -32,12 +36,34 @@ function App() {
     }
   ]);
 
+  function saveChat() {
+    if (chatMessages.length <= 2) {
+      return;
+    }
+
+    const newConversation = {
+
+      id: crypto.randomUUID(),
+      title: "New chat",
+      messages: chatMessages.map(m => ({...m})),
+    }
+
+    setConversations(prev => [newConversation, ...prev]);
+  };
+
+  function printConversations() {
+
+    console.log(conversations);
+  }
+
+  
+
 
   return (
     <>
 
       <div className='main-wrapper'>
-        <Sidebar setChatMessages={setChatMessages} />
+        <Sidebar setChatMessages={setChatMessages} conversations={conversations} />
         
 
         <div className='app-container'>
@@ -47,8 +73,8 @@ function App() {
             
             
             <div className='utility-buttons-container'>
-              <button className='top-bar-save-chat-button'><img className='save-chat-icon' src={saveChatIcon} height={20} />Save Chat</button>
-              <button className='top-bar-share-button'><img className='share-icon' src={shareIcon} height={20} />Share</button>
+              <button className='top-bar-save-chat-button' onClick={saveChat}><img className='save-chat-icon' src={saveChatIcon} height={20} />Save Chat</button>
+              <button className='top-bar-share-button' onClick={printConversations}><img className='share-icon' src={shareIcon} height={20} />Share</button>
             </div>
             
           </div>
