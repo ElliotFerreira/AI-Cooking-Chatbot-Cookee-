@@ -36,15 +36,44 @@ function App() {
     }
   ]);
 
-  function saveChat() {
+  async function saveChat() {
     if (chatMessages.length <= 2) {
       return;
+    }
+
+    let conversationTitle = "";
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/generate-conversation-title', {
+        method: "POST",
+        headers: {"Content-Type" : 'application/json'},
+        body: JSON.stringify({
+          messages : [
+            {
+              role: "system",
+              content: "You are a friendly cooking assistant named Cookee. Based on the current conversation give the conversation a name, make sure it's less than 5 words."
+            },
+
+            {
+              role: "user",
+              content: JSON.stringify(chatMessages)
+            }
+          ]
+        })
+      })
+
+      const data = await response.json();
+      conversationTitle = data.reply;
+
+
+    } catch(error) {
+      console.error("There was an error deciding the conversation title: ", error)
     }
 
     const newConversation = {
 
       id: crypto.randomUUID(),
-      title: "New chat",
+      title: conversationTitle,
       messages: chatMessages.map(m => ({...m})),
     }
 
