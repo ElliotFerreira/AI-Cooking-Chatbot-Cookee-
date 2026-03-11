@@ -51,7 +51,7 @@ function App() {
           messages : [
             {
               role: "system",
-              content: "You are a friendly cooking assistant named Cookee. Based on the current conversation give the conversation a name, make sure it's less than 5 words."
+              content: "You are a friendly cooking assistant named Cookee. Based on the current conversation give the conversation a name, make sure it's less than 5 words. Of absolute importance make sure the response does not come back with any quotation marks."
             },
 
             {
