@@ -23,7 +23,11 @@ function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
 
     async function sendMessage() {
 
-        if(!inputText.trim()) return;
+        
+
+        if(!inputText.trim()) {
+            return;
+        }
 
         setChatMessages([
             ...chatMessages,
@@ -45,7 +49,7 @@ function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
                     messages: [
                         {
                             role: "system",
-                            content: "You are a friendly cooking assistant named Cookee. Instruct users on how to cook and give them step-by-step recipes"
+                            content: "You are a friendly cooking assistant named Cookee. Instruct users on how to cook and give them step-by-step recipes, you can also give users advice on hygeine in the kitchen."
                         },
 
                         {
