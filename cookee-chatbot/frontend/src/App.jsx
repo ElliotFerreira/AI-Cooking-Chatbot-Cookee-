@@ -39,6 +39,8 @@ function App() {
   async function saveChat() {
     if (chatMessages.length <= 2) {
       return;
+
+      // Need help documenting tis
     }
 
     let conversationTitle = "";
