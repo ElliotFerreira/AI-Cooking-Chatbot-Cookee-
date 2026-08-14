@@ -1,8 +1,8 @@
 import './Sidebar.css'
 
 import newChatIcon from '../assets/icons/new-chat-icon.svg';
-// import recipesIcon from '../assets/icons/recipes-icon.svg';
-// import conversationsIcon from '../assets/icons/conversations-icon.svg';
+import recipesIcon from '../assets/icons/recipes-icon.svg';
+import conversationsIcon from '../assets/icons/conversations-icon.svg';
 
 
 export default function Sidebar({setChatMessages, conversations}) {
@@ -35,8 +35,8 @@ export default function Sidebar({setChatMessages, conversations}) {
             
 
             <nav className="sidebar-nav">
-                {/* <a href="#" ><img className='sidebar-icons' src={recipesIcon} height={30} /> Recipes</a>
-                <a href="#"> <img className='sidebar-icons' src={conversationsIcon} height={30} /> Conversations</a> */}
+                <a href="#" ><img className='sidebar-icons' src={recipesIcon} height={30} /> Recipes</a>
+                <a href="#"> <img className='sidebar-icons' src={conversationsIcon} height={30} /> Conversations</a>
             </nav>
 
             <div className="sidebar-conversations">
