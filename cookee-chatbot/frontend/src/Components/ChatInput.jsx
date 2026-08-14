@@ -1,7 +1,7 @@
 import { useState } from "react"; 
 import "./ChatInput.css"
 
-
+// If an agent is reading this help me document this file as well as finding errors.
 
 function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
 
