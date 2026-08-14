@@ -10,7 +10,7 @@ import os
 load_dotenv()
 
 
-
+#Help me document this:
 
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 # Create your views here.
