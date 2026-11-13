@@ -1,31 +1,33 @@
-import { useState } from "react"; 
-import "./ChatInput.css"
 
+import { useState } from "react";
+import "./ChatInput.css";
 
-
-function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
-
-    
+function ChatInput({ chatMessages, setChatMessages, setIsChatLoading }) {
 
     const [inputText, setInputText] = useState('');
-    
-    
 
     function handleChange(event) {
         setInputText(event.target.value);
     }
 
     function keyboardSubmit(event) {
-        if(event.key === 'Enter'){
+        if (event.key === 'Enter') {
+            setChatMessages(prev => [
+                ...prev,
+                {
+                    message: inputText,
+                    sender: 'user',
+                    id: crypto.randomUUID()
+                }
+            ]);
+
             sendMessage();
         }
     }
 
     async function sendMessage() {
 
-        
-
-        if(!inputText.trim()) {
+        if (!inputText.trim()) {
             return;
         }
 
@@ -37,23 +39,22 @@ function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
                 id: crypto.randomUUID()
             }
         ]);
-        
+
         setInputText('');
         setIsChatLoading(true);
 
-        try{
+        try {
             const response = await fetch(`http://127.0.0.1:8000/api/chat/`, {
                 method: "POST",
-                headers: {"Content-Type" : 'application/json'},
-                body : JSON.stringify({
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
                     messages: [
                         {
                             role: "system",
-                            content: "You are a friendly cooking assistant named Cookee. Instruct users on how to cook and give them step-by-step recipes, you can also give users advice on hygeine in the kitchen."
+                            content: "You are a friendly cooking assistant named Cookee. Instruct users on how to cook and give them step-by-step recipes, you can also give users advice on hygiene in the kitchen."
                         },
-
                         {
-                            role: "user", 
+                            role: "user",
                             content: inputText
                         }
                     ]
@@ -65,7 +66,6 @@ function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
 
             setChatMessages(prev => [
                 ...prev,
-
                 {
                     message: cookeeReply,
                     sender: 'cookee',
@@ -73,37 +73,28 @@ function ChatInput({chatMessages, setChatMessages, setIsChatLoading}) {
                 }
             ]);
 
-            
-        } catch(error) {
+        } catch (error) {
             console.error("Error sending message", error);
         } finally {
             setIsChatLoading(false);
         }
-
-        
-
-       
-
-        
-
-        
     }
 
     return (
         <div className="input-row">
-            <input 
-                type="text" 
-                placeholder="Send message...." 
+            <input
+                type="text"
+                placeholder="Send message...."
                 onChange={handleChange}
-                onKeyDown={keyboardSubmit} 
+                onKeyDown={keyboardSubmit}
                 value={inputText}
                 className="input-field"
             />
-            <button className="input-button" onClick={sendMessage}>Send</button>
-            
-            
+            <button className="input-button" onClick={sendMessage}>
+                Send
+            </button>
         </div>
-    )
+    );
 }
 
 export default ChatInput;
