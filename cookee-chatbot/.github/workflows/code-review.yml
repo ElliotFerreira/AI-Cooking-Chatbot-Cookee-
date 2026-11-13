@@ -1,0 +1,42 @@
+
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private agent
+        uses: actions/checkout@v4
+        with:
+          repository: ElliotFerreira/Tutelage
+          token: ${{ secrets.CRA_ACCESS_TOKEN }}
+          path: agent
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r agent/requirements.txt
+
+      - name: Run code review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: python agent/main.py
